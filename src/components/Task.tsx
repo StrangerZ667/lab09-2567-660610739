@@ -1,11 +1,11 @@
 import React from "react";
 
 interface TaskItemProps {
-  id: number;
+  id: string;
   title: string;
   completed: boolean;
-  deleteTaskFunc: (taskId: number) => void;
-  toggleDoneTaskFunc: (taskId: number) => void;
+  deleteTaskFunc: (taskId: string) => void;
+  toggleDoneTaskFunc: (taskId: string) => void;
 }
 
 export default function Task({
