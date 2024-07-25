@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function Home() {
   interface TaskItem {
-    id: number;
+    id:string;
     title: string;
     completed: boolean;
   }
@@ -25,7 +25,7 @@ export default function Home() {
     setTasks(newTasks);
   };
 
-  const deleteTask = (taskId: number) => {
+  const deleteTask = (taskId: any) => {
     const taskToDelete = tasks.find((task) => task.id === taskId);
     if (taskToDelete && taskToDelete.completed) {
       setDone(Math.max(count2 - 1, 0));
@@ -35,7 +35,7 @@ export default function Home() {
     setTasks(newTasks);
   };
 
-  const toggleDoneTask = (taskId: number) => {
+  const toggleDoneTask = (taskId: any) => {
     const newTasks = structuredClone(tasks);
     const task = newTasks.find((x) => x.id === taskId);
     const isTaskCompleted = task.completed;
