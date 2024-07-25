@@ -18,14 +18,14 @@ export default function Home() {
   const [count1, setAll] = useState(0);
   const [count2, setDone] = useState(0);
 
-  const addTask = (newTaskTitle: any) => {
+  const addTask = (newTaskTitle: string) => {
     const newTask = { id: nanoid(), title: newTaskTitle, completed: false };
     const newTasks = [...tasks, newTask];
     setAll(count1 + 1);
     setTasks(newTasks);
   };
 
-  const deleteTask = (taskId: any) => {
+  const deleteTask = (taskId: string) => {
     const taskToDelete = tasks.find((task) => task.id === taskId);
     if (taskToDelete && taskToDelete.completed) {
       setDone(Math.max(count2 - 1, 0));
@@ -35,13 +35,13 @@ export default function Home() {
     setTasks(newTasks);
   };
 
-  const toggleDoneTask = (taskId: any) => {
+  const toggleDoneTask = (taskId: string) => {
     const newTasks = structuredClone(tasks);
-    const task : any = newTasks.find((x) => x.id === taskId);
+    const task:any = newTasks.find((x) => x.id === taskId);
     task.completed = !task.completed;
     setTasks(newTasks);
     const updatedDoneCount = newTasks.filter((task) => task.completed).length;
-  setDone(updatedDoneCount);
+    setDone(updatedDoneCount);
   };
   
 
