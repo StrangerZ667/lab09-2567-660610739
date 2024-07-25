@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function Home() {
   interface TaskItem {
-    id:string;
+    id: string;
     title: string;
     completed: boolean;
   }
@@ -37,17 +37,11 @@ export default function Home() {
 
   const toggleDoneTask = (taskId: any) => {
     const newTasks = structuredClone(tasks);
-    const task = newTasks.find((x) => x.id === taskId);
-    const isTaskCompleted = task.completed;
+    const task : any = newTasks.find((x) => x.id === taskId);
     task.completed = !task.completed;
     setTasks(newTasks);
-    
-    if (task.completed && !isTaskCompleted) {
-      setDone(count2 + 1);
-    }
-     else if (!task.completed && isTaskCompleted) {
-      setDone(Math.max(count2 - 1, 0));
-    }
+    const updatedDoneCount = newTasks.filter((task) => task.completed).length;
+  setDone(updatedDoneCount);
   };
   
 
